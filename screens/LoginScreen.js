@@ -2,13 +2,22 @@ import React, { useState } from "react";
 import { StyleSheet, View, TextInput, Image } from "react-native";
 import AppButton from "../components/AppButton";
 import Logo from "../assets/alogo-2.png";
+import SelectDropdown from "react-native-select-dropdown";
 
-const LoginScreen = () => {
+const routes = ["project-overview", "liste-ticket"];
+
+const LoginScreen = ({ navigation }) => {
   const [username, onChangeUsername] = useState("");
   const [password, onChangePassword] = useState("");
 
   return (
     <View style={styles.container}>
+      <SelectDropdown
+        data={routes}
+        onSelect={(selectedItem, index) => {
+          navigation.navigate(selectedItem);
+        }}
+      />
       <Image style={styles.logo} source={Logo} />
       <TextInput
         style={styles.input}
@@ -43,8 +52,8 @@ const styles = StyleSheet.create({
   logo: {
     width: 180,
     height: 180,
-    alignSelf: "center"
-  }
+    alignSelf: "center",
+  },
 });
 
 export default LoginScreen;
