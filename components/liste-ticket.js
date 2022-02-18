@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { Dimensions } from "react-native";
 
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  FlatList,
-  ScrollView,
-} from "react-native";
+import { Text, View, StyleSheet, Image, FlatList } from "react-native";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import SelectDropdown from "react-native-select-dropdown";
 
@@ -139,7 +132,7 @@ export default () => {
           source={require("../assets/travaux-routiers.png")}
           style={styles.img}
         />
-        <Text style={styles.title}>Tasks</Text>
+        <Text style={styles.titre1}>Tasks</Text>
         <Image source={require("../assets/menu.png")} style={styles.img} />
       </View>
       <View style={styles.body}>
@@ -227,9 +220,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: width,
   },
-  title: {
-    fontSize: 24,
-  },
+  titre1: { fontSize: 24 },
   img: {
     width: 40,
     height: 40,
