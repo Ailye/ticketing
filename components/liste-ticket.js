@@ -122,8 +122,9 @@ const defaultTasks = [
     dueDate: "18/02/2022",
   },
 ];
+const routes = ["project-overview"];
 
-export default () => {
+export default ({ navigation }) => {
   const [tasks, setTasks] = useState(defaultTasks);
   return (
     <View style={styles.main}>
@@ -133,7 +134,13 @@ export default () => {
           style={styles.img}
         />
         <Text style={styles.titre1}>Tasks</Text>
-        <Image source={require("../assets/menu.png")} style={styles.img} />
+        {/* <Image source={require("../assets/menu.png")} style={styles.img} /> */}
+        <SelectDropdown
+          data={routes}
+          onSelect={(selectedItem, index) => {
+            navigation.navigate(selectedItem);
+          }}
+        />
       </View>
       <View style={styles.body}>
         <View style={styles.options}>
