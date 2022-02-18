@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import { Dimensions } from "react-native";
 import { BarChart } from "react-native-chart-kit";
+import SelectDropdown from "react-native-select-dropdown";
 
 let width = Dimensions.get("window").width;
 let height = Dimensions.get("window").height;
@@ -20,7 +21,9 @@ const data = {
   ],
 };
 
-export default () => {
+const routes = ["liste-ticket", "login"];
+
+export default ({ navigation }) => {
   return (
     <View style={styles.main}>
       <View style={styles.header}>
@@ -29,7 +32,13 @@ export default () => {
           style={styles.img}
         />
         <Text style={styles.titre1}>Project Overview</Text>
-        <Image source={require("../assets/menu.png")} style={styles.img} />
+        {/* <Image source={require("../assets/menu.png")} style={styles.img} /> */}
+        <SelectDropdown
+          data={routes}
+          onSelect={(selectedItem, index) => {
+            navigation.navigate(selectedItem);
+          }}
+        />
       </View>
       <View style={styles.body}>
         <Text style={styles.titre2}>Acme Project</Text>
