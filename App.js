@@ -9,8 +9,8 @@ import ProjectOverview from "./screens/project-overview.js";
 export default function App() {
   return (
     <View style={styles.container}>
-      <ProjectOverview />
-      <ListeTicket />
+      {/* <ProjectOverview />
+      <ListeTicket /> */}
       <LoginScreen />
       <StatusBar style="auto" />
     </View>
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
     justifyContent: "center",
   },
 });
